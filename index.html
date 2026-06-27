@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><title>Nepal Finance - Redirecting...</title></head>
+<head><title>Nepal Finance - Signing in...</title>
+<style>body{font-family:sans-serif;background:#1E3A5F;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;margin:0;}h2{margin-bottom:8px;}p{color:rgba(255,255,255,0.6);}</style>
+</head>
 <body>
+<h2>💰 Nepal Finance</h2>
+<p>Completing sign-in, returning to app...</p>
 <script>
-  // Extract token from URL and send to app via deep link
   const params = new URLSearchParams(window.location.search);
   const code = params.get('code');
   const error = params.get('error');
   if (code) {
     window.location.href = 'com.nepalfinance.app://oauth2redirect?code=' + encodeURIComponent(code);
   } else if (error) {
-    document.body.innerHTML = '<p>Sign-in error: ' + error + '</p>';
-  } else {
-    document.body.innerHTML = '<p>No code received.</p>';
+    document.querySelector('p').textContent = 'Error: ' + error;
   }
 </script>
-<p>Redirecting back to Nepal Finance...</p>
 </body>
 </html>
